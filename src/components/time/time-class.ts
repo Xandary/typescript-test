@@ -24,29 +24,36 @@ export class TimeClass {
     return this.seconds;
   }
 
-  private createTimeElement(): void {
+  private createTimeElement = (): void => {
     //Create the time element
     this.timeElement = document.createElement("div");
     this.timeElement.className = "time-element";
 
     const time = document.createElement("a");
+    time.id = "time";
     time.text = this.hours.toString().padStart(2, '0') + ":" + this.minuts.toString().padStart(2, '0') + ":" + this.seconds.toString().padStart(2, '0');
     this.timeElement.appendChild(time);
   }
 
-  private incrementSeconds(): void {
+  private updateTimeElement = (): void => {
+    const time = document.getElementById("time");
+    time.innerHTML = this.hours.toString().padStart(2, '0') + ":" + this.minuts.toString().padStart(2, '0') + ":" + this.seconds.toString().padStart(2, '0');
+  }
+
+  public incrementSeconds = (): void => {
     this.seconds++;
-    console.log(this.seconds);
 
     if(this.seconds === 60) {
         this.incrementMinuts();
+        this.seconds = 0;
     }
     if(this.minuts === 60) {
         this.incrementHours();
     }
+    this.updateTimeElement();
   }
 
-  private incrementMinuts(): void {
+  public incrementMinuts = (): void => {
     this.minuts++;
 
     if(this.minuts === 60) {
@@ -55,7 +62,7 @@ export class TimeClass {
     }
   }
 
-  private incrementHours(): void {
+  public incrementHours = (): void => {
     this.hours++;
 
     if(this.hours === 24) {
