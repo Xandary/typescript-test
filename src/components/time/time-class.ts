@@ -30,7 +30,7 @@ export class TimeClass {
     this.timeElement.className = "time-element";
 
     const time = document.createElement("a");
-    time.text = this.hours.toString() + ":" + this.minuts.toString() + ":" + this.seconds.toString();
+    time.text = this.hours.toString().padStart(2, '0') + ":" + this.minuts.toString().padStart(2, '0') + ":" + this.seconds.toString().padStart(2, '0');
     this.timeElement.appendChild(time);
   }
 
