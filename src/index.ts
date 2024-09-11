@@ -1,5 +1,7 @@
 import './index.css';
-import { MyClass } from './example-unit';
+import { ClockClass } from './components';
 
-const a = new MyClass(2);
-console.log('number is', a.get());
+const clock = new ClockClass();
+const clocksContainer = document.getElementById("clocks-container");
+
+clock.addClockElementInContainer(clocksContainer);

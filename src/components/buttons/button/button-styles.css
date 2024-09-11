@@ -1,0 +1,10 @@
+.button-element {
+    height: 50px;
+    width: 50px;
+    background-color: lightblue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
